@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+//decorator 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'note-keeper';
+  saudacao: string = "Hello World!";
+
+  valor: string = ""
+
+  mostarValor(){
+    return alert(this.valor)
+  }
 }
