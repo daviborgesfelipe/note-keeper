@@ -27,8 +27,13 @@ export class CriarNotaComponent {
   }
 
   criarNota(){
+    
     this.notaService.criar(this.nota).subscribe((nota) => {
-      this.toastService.success(`Nota ${nota.titulo} CRIADA com sucesso`, 'Sucesso')
+      this.toastService.success(
+        `Nota ${nota.titulo} CRIADA com sucesso`,
+        'Sucesso'
+      )
+
       this.router.navigate(['/notas', 'listar'])
     })
   }

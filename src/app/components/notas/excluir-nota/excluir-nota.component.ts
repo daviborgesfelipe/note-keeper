@@ -25,8 +25,9 @@ export class ExcluirNotaComponent implements OnInit{
   }
   
   excluirNota(){
-    this.notaService.excluir(this.nota).subscribe()
-    this.toastService.success('Nota EXCLUIDA com sucesso', 'Sucesso')
-    this.router.navigate(['/notas', 'listar'])
+    this.notaService.excluir(this.nota).subscribe((nota: Nota) => {
+      this.toastService.success(`Nota ${nota.titulo} EXCLUIDA com sucesso`, 'Sucesso')
+      this.router.navigate(['/notas', 'listar'])
+    })
   }
 }

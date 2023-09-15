@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Nota } from "./notas";
 import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -11,26 +12,26 @@ export class NotaService {
   private notas: Nota[] = [];
 
   constructor(private http: HttpClient) {
+
   }
-
-
-  excluir(nota: Nota) {
-    return this.http.delete<Nota>(this.API_URL + nota.id);
+  
+  criar(nota: Nota): Observable<Nota> {
+    return this.http.post<Nota>(this.API_URL, nota)
   }
-
-  editar(nota: Nota){
+  
+  editar(nota: Nota): Observable<Nota> {
     return this.http.put<Nota>(this.API_URL + nota.id, nota);
   }
-
-  selecionarTodos() {
+  
+  selecionarTodos(): Observable<Nota[]> {
     return this.http.get<Nota[]>(this.API_URL);
   }  
   
-  selecionarPorId(id: number) {
+  selecionarPorId(id: number): Observable<Nota> {
     return this.http.get<Nota>(this.API_URL + id)
-  }
 
-  criar(nota: Nota) {
-    return this.http.post<Nota>(this.API_URL, nota)
+  }
+  excluir(nota: Nota) {
+    return this.http.delete<Nota>(this.API_URL + nota.id);
   }
 }

@@ -3,26 +3,32 @@
     {
       "id": 1,
       "titulo": "Analise",
-      "conteudo": "Analisando",
+      "conteudo": "Coletando dados com cliente, Criando cenarios, Definindo arquitetura, Abstraindo os requisitos, Desenhando Prototipos",
       "tema": "dark"
     },
     {
       "id": 2,
       "titulo": "Pronto para desenvolver",
-      "conteudo": "Abstraido pronto para protitipar",
+      "conteudo": "Abstraido pronto para desenvolver os priimeiros prototipos",
       "tema": "warning"
     },
     {
       "id": 3,
       "titulo": "Desenvolvendo",
-      "conteudo": "Em desenvolvimento, criando os primeiros prototipos",
-      "tema": "primary"
+      "conteudo": "Em desenvolvimento, criando os primeiros prototipos e testes",
+      "tema": "info"
     },
     {
-      "titulo": "",
-      "conteudo": "",
-      "tema": "dark",
-      "id": 4
+      "id": 4,
+      "titulo": "Validacao",
+      "conteudo": "Em fase de validacao, criando o restante dos testes, pequenas validacoes com a equipe e cliente",
+      "tema": "danger"
+    },
+    {
+      "id": 5,
+      "titulo": "Pronto para entrega",
+      "conteudo": "Pronto para entregar",
+      "tema": "success"
     }
   ]
 }
