@@ -1,41 +1,36 @@
 import { Injectable } from "@angular/core";
 import { Nota } from "./notas";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class NotaService {
+  private API_URL = 'http://localhost:3000/notas/'
+  private notas: Nota[] = [];
+
+  constructor(private http: HttpClient) {
+  }
 
 
-  notas: Nota[] = [
-    {
-      id: 0,
-      titulo: 'Analise',
-      conteudo: 'Analisando',
-      tema: 'dark',
-    },
-    {
-      id: 1,
-      titulo: 'Pronto para desenvolver',
-      conteudo: 'Abstraido pronto para protitipar',
-      tema: 'warning',
-    },
-    {
-      id: 2,
-      titulo: 'Desenvolvendo',
-      conteudo: 'Em desenvolvimento, criando os primeiros prototipos',
-      tema: 'primary',
-    },
-  ];
+  excluir(nota: Nota) {
+    return this.http.delete<Nota>(this.API_URL + nota.id);
+  }
 
-  selecionarTodos(): Nota[] {
-    return this.notas
+  editar(nota: Nota){
+    return this.http.put<Nota>(this.API_URL + nota.id, nota);
+  }
+
+  selecionarTodos() {
+    return this.http.get<Nota[]>(this.API_URL);
+  }  
+  
+  selecionarPorId(id: number) {
+    return this.http.get<Nota>(this.API_URL + id)
   }
 
   criar(nota: Nota) {
-    nota.id = this.notas.length;
-
-    this.notas.push(nota)
+    return this.http.post<Nota>(this.API_URL, nota)
   }
 }

@@ -10,11 +10,10 @@ import { NotaService } from '../nota.service';
 export class ListarNotasComponent implements OnInit{
   notas: Nota[] = [];
 
-
   constructor(private notaService: NotaService) {
   }
   
   ngOnInit(): void {
-    this.notas = this.notaService.selecionarTodos();
+    this.notaService.selecionarTodos().subscribe(_notas => this.notas = _notas);
   }
 }
