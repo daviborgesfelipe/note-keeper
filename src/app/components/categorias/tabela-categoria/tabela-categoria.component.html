@@ -1,0 +1,37 @@
+<div class="col-sm col-md-6 col-lg-3">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#ID</th>
+        <th scope="col"></th>
+        <th scope="col">Titulo</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let categoria of categorias">
+      <tr>
+        <th scope="row">{{categoria.id}}</th>
+        <td></td>
+        <td>{{categoria.titulo}}</td>
+        <td>
+          <button
+            routerLink="/categoriaeditar/{{ categoria.id }}"
+            class="btn btn-outline-success me-1"
+            aria-label="Editar"
+            ngbTooltip="Editar"
+            placement="bottom"
+          >
+            <i class="bi bi-pen"></i>
+          </button>
+          <button
+            routerLink="/categoria/excluir/{{ categoria.id }}"
+            class="btn btn-outline-danger"
+            aria-label="Excluir"
+            ngbTooltip="Excluir"
+            placement="bottom"
+          >
+            <i class="bi bi-trash"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
