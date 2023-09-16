@@ -13,7 +13,11 @@ import { CriarNotaComponent } from './components/notas/criar-nota/criar-nota.com
 import { EditarNotaComponent } from './components/notas/editar-nota/editar-nota.component';
 import { ExcluirNotaComponent } from './components/notas/excluir-nota/excluir-nota.component';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { FiltrosPorCategoriaComponent } from './components/notas/filtros-por-categoria/filtros-por-categoria.component';
+import { CriarCategoriaComponent } from './components/categorias/criar-categoria/criar-categoria.component';
+import { ListarCategoriaComponent } from './components/categorias/listar-categoria/listar-categoria.component';
+import { TabelaCategoriaComponent } from './components/categorias/tabela-categoria/tabela-categoria.component'
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { HttpClientModule } from '@angular/common/http'
     CardNotaComponent, 
     CriarNotaComponent,
     EditarNotaComponent,
-    ExcluirNotaComponent, 
+    ExcluirNotaComponent,
+    FiltrosPorCategoriaComponent,
+    CriarCategoriaComponent,
+    ListarCategoriaComponent,
+    TabelaCategoriaComponent, 
   ],
   imports: [
     BrowserModule,
