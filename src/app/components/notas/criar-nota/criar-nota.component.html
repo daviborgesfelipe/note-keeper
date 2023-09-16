@@ -24,6 +24,18 @@
         ></textarea>
       </div>
 
+      <!-- Criar ComboBox de Categorias -->
+      <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
+        <select class="form-select" id="inputGroupSelect01" >
+          <option selected>Selecione...</option>
+          <div *ngFor="let categoria of categorias">
+            <option>{{categoria.titulo}}</option>
+          </div>
+        </select>
+      </div>
+
+
       <label for="tema" class="form-label fs-5 fw-semibold">Tema</label>
       <div>
         <div class="form-check form-check-inline">
