@@ -1,34 +1,53 @@
 {
+  "categorias": [
+    {
+      "titulo": "Desenvolvimento",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "titulo": "Analise"
+    },
+    {
+      "id": 3,
+      "titulo": "Qualidade"
+    }
+  ],
   "notas": [
     {
       "id": 1,
-      "titulo": "Analise",
+      "titulo": "Analisando",
       "conteudo": "Coletando dados com cliente, Criando cenarios, Definindo arquitetura, Abstraindo os requisitos, Desenhando Prototipos",
-      "tema": "dark"
+      "tema": "dark",
+      "categoriaId": 2
     },
     {
       "id": 2,
       "titulo": "Pronto para desenvolver",
       "conteudo": "Abstraido pronto para desenvolver os priimeiros prototipos",
-      "tema": "warning"
+      "tema": "warning",
+      "categoriaId": 2
     },
     {
       "id": 3,
-      "titulo": "Desenvolvendo",
+      "titulo": "Em desenvolvimento",
       "conteudo": "Em desenvolvimento, criando os primeiros prototipos e testes",
-      "tema": "info"
+      "tema": "info",
+      "categoriaId": 1
     },
     {
       "id": 4,
       "titulo": "Validacao",
       "conteudo": "Em fase de validacao, criando o restante dos testes, pequenas validacoes com a equipe e cliente",
-      "tema": "danger"
+      "tema": "danger",
+      "categoriaId": 3
     },
     {
       "id": 5,
       "titulo": "Pronto para entrega",
       "conteudo": "Pronto para entregar",
-      "tema": "success"
+      "tema": "success",
+      "categoriaId": 3
     }
   ]
 }
