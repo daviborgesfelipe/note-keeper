@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Nota } from '../notas';
+import { Nota } from '../../../models/notas';
 
 @Component({
   selector: 'app-nota',
@@ -12,5 +12,6 @@ export class CardNotaComponent {
     titulo: 'Analise',
     conteudo: 'Analisando',
     tema: 'dark',
+    categoriaId: 2
   };
 }
