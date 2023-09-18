@@ -13,17 +13,16 @@ import { Categoria } from "src/app/models/categoria";
 })
 
 export class CriarNotaComponent implements OnInit{
-  @Output() notaCriada = new EventEmitter<Nota>();
-  
+  // @Output() notaCriada = new EventEmitter<Nota>();
   nota: Nota;
   notas: Nota[] = [];
   categorias: Categoria[] = []; 
 
   constructor(
-    private notaService: NotaService,
-    private categoriaService: CategoriaService,
-    private router: Router,
-    private toastService: ToastrService
+      private notaService: NotaService,
+      private categoriaService: CategoriaService,
+      private router: Router,
+      private toastService: ToastrService
     ) {
     this.nota = new Nota(
       '',
@@ -43,7 +42,7 @@ export class CriarNotaComponent implements OnInit{
         `Nota ${nota.titulo} CRIADA com sucesso`,
         'Sucesso'
       )
-      this.notaCriada.emit(nota);
+      // this.notaCriada.emit(nota);
       this.router.navigate(['/notas', 'listar'])
     })
   }
