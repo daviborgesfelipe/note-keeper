@@ -27,8 +27,8 @@ export class NotaService {
     return this.http.get<Nota[]>(this.API_URL);
   }  
 
-  selecionarTodosComCategoria(): Observable<Nota[]> {
-    const URL = 'http://localhost:3000/notas?_expand=categoria'
+  selecionarTodosComCategoria(categoria: Categoria): Observable<Nota[]> {
+    const URL = 'http://localhost:3000/notas?_expand=categoria&&categoriaId=' + categoria.id ?? 0;
     return this.http.get<Nota[]>(URL);
   } 
   
@@ -38,10 +38,5 @@ export class NotaService {
 
   excluir(nota: Nota) {
     return this.http.delete<Nota>(this.API_URL + nota.id);
-  }
-
-  public selecionarPorCategoria(categoria: Categoria) {
-    const URL = 'http://localhost:3000/notas?_expand=categoria&&categoriaId=' + categoria.id ?? 0;
-    return this.http.get<Nota[]>(URL);
   }
 }
