@@ -20,6 +20,15 @@ export class CategoriaService{
 
   selecionarTodos(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.API_URL);
+  }   
+  
+  selecionarComCategoria(categoria: Categoria): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(this.API_URL + categoria.id);
+  }    
+  
+  selecionarCategoriaComNotas(categoria: Categoria): Observable<Categoria[]> {
+    const URL = 'http://localhost:3000/categorias?_embed=notas'
+    return this.http.get<Categoria[]>(URL);
   }  
 
   selecionarPorId(id: number): Observable<Categoria> {
@@ -30,7 +39,7 @@ export class CategoriaService{
     return this.http.delete<Categoria>(this.API_URL + categoria.id);
   }
 
-  editar(nota: Categoria): Observable<Categoria> {
-    return this.http.put<Categoria>(this.API_URL + nota.id, nota);
+  editar(categoria: Categoria): Observable<Categoria> {
+    return this.http.put<Categoria>(this.API_URL + categoria.id, categoria);
   }
 }
