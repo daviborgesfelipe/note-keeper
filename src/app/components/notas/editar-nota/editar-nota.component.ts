@@ -17,18 +17,20 @@ export class EditarNotaComponent implements OnInit{
   categorias: Categoria[] = []; 
   
   constructor(
-    private notaService: NotaService,
-    private route: ActivatedRoute,
-    private categoriaService: CategoriaService,
-    private router: Router,
-    private toastService: ToastrService
+      private notaService: NotaService,
+      private route: ActivatedRoute,
+      private categoriaService: CategoriaService,
+      private router: Router,
+      private toastService: ToastrService
     ){
     this.nota = new Nota('','','dark',0);
     }
 
     ngOnInit(): void {
       let id: number = parseInt(this.route.snapshot.paramMap.get('id') as string);
-      this.categoriaService.selecionarTodos().subscribe(_categorias => this.categorias = _categorias);
+      this.categoriaService.selecionarTodos().subscribe(_categorias => {
+        this.categorias = _categorias
+      });
       this.notaService.selecionarPorId(id).subscribe((nota: Nota) => this.nota = nota);
     }
 
