@@ -27,11 +27,10 @@
       <!-- Criar ComboBox de Categorias -->
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
-        <select class="form-select" id="inputGroupSelect01" >
-          <option selected>Selecione...</option>
-          <div *ngFor="let categoria of categorias">
-            <option>{{categoria.titulo}}</option>
-          </div>
+        <select class="form-select" id="inputGroupSelect01">
+          <option>Selecione...</option>
+
+          <option *ngFor="let categoria of categorias">{{categoria.titulo}}</option>
         </select>
       </div>
 
