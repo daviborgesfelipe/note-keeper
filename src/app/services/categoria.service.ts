@@ -9,17 +9,28 @@ import { Observable } from "rxjs";
 
 export class CategoriaService{
   private API_URL = 'http://localhost:3000/categorias/'
-  private notas: Categoria[] = [];
+  private categorias: Categoria[] = [];
   
   constructor(private http: HttpClient) {
-    
   }
 
-  criar(nota: Categoria) {
-    return this.http.post<Categoria>(this.API_URL, nota)
+  criar(categoria: Categoria) {
+    return this.http.post<Categoria>(this.API_URL, categoria)
   }
 
   selecionarTodos(): Observable<Categoria[]> {
     return this.http.get<Categoria[]>(this.API_URL);
   }  
+
+  selecionarPorId(id: number): Observable<Categoria> {
+    return this.http.get<Categoria>(this.API_URL + id)
+  }
+
+  excluir(categoria: Categoria) {
+    return this.http.delete<Categoria>(this.API_URL + categoria.id);
+  }
+
+  editar(nota: Categoria): Observable<Categoria> {
+    return this.http.put<Categoria>(this.API_URL + nota.id, nota);
+  }
 }
