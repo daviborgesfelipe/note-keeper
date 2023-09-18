@@ -17,7 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FiltrosPorCategoriaComponent } from './components/notas/filtros-por-categoria/filtros-por-categoria.component';
 import { CriarCategoriaComponent } from './components/categorias/criar-categoria/criar-categoria.component';
 import { ListarCategoriaComponent } from './components/categorias/listar-categoria/listar-categoria.component';
-import { TabelaCategoriaComponent } from './components/categorias/tabela-categoria/tabela-categoria.component'
+import { TabelaCategoriaComponent } from './components/categorias/tabela-categoria/tabela-categoria.component';
+import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
+import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component'
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { TabelaCategoriaComponent } from './components/categorias/tabela-categor
     FiltrosPorCategoriaComponent,
     CriarCategoriaComponent,
     ListarCategoriaComponent,
-    TabelaCategoriaComponent, 
+    TabelaCategoriaComponent,
+    EditarCategoriaComponent,
+    ExcluirCategoriaComponent, 
   ],
   imports: [
     BrowserModule,
