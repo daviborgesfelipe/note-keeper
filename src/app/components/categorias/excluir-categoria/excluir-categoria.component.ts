@@ -15,21 +15,23 @@ export class ExcluirCategoriaComponent implements OnInit{
   categoria: Categoria;
 
   constructor(
-    private notaService: CategoriaService,
+    private categoriaService: CategoriaService,
     private route: ActivatedRoute,
     private router: Router,
     private toastService: ToastrService
   ){
   this.categoria = new Categoria('', 0)
   }
+
+
   ngOnInit(): void {
     let id: number = parseInt(this.route.snapshot.paramMap.get('id') as string);
     
-    this.notaService.selecionarPorId(id).subscribe((nota: Categoria) => this.categoria = nota);
+    this.categoriaService.selecionarPorId(id).subscribe((nota: Categoria) => this.categoria = nota);
   }
   
   excluirCategoria(){
-    this.notaService.excluir(this.categoria).subscribe((categoria: Categoria) => {
+    this.categoriaService.excluir(this.categoria).subscribe((categoria: Categoria) => {
       this.toastService.success(`Categoria ${categoria.titulo} EXCLUIDA com sucesso`, 'Sucesso')
       this.router.navigate(['/categorias', 'listar'])
     })
