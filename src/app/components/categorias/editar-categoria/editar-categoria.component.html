@@ -5,7 +5,9 @@
     <h2 class="fs-4 fw-light">
       Edite uma categoria personalizada para ajudar a organizar as notas.
     </h2>
+
     <form (submit)="editarCategoria()" class="d-grid gap-3">
+
       <div class="mb-3">
         <label for="titulo" class="form-label fs-5 fw-semibold">Título</label>
         <input [(ngModel)]="categoria.titulo" type="text" class="form-control" id="titulo" name="titulo" />
@@ -13,10 +15,11 @@
       
       <div class="d-flex gap-2 my-2 justify-content-end">
         <button type="submit" class="btn btn-primary px-5">Salvar</button>
-        <button routerLink="/notas/listar" class="btn btn-outline-danger px-4">
+        <button routerLink="/categorias/listar" class="btn btn-outline-danger px-4">
           Cancelar
         </button>
       </div>
+
     </form>
   </div>
 </section>
