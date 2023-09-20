@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { ListarNotasComponent } from './components/notas/listar-notas/listar-notas.component';
 import { CriarNotaComponent } from './components/notas/criar-nota/criar-nota.component';
 import { EditarNotaComponent } from './components/notas/editar-nota/editar-nota.component';
 import { ExcluirNotaComponent } from './components/notas/excluir-nota/excluir-nota.component';
-import { CriarCategoriaComponent } from './components/categorias/criar-categoria/criar-categoria.component';
+
 import { ListarCategoriaComponent } from './components/categorias/listar-categoria/listar-categoria.component';
-import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component';
+import { CriarCategoriaComponent } from './components/categorias/criar-categoria/criar-categoria.component';
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
+import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component';
 
 const routes: Routes = [
   {
