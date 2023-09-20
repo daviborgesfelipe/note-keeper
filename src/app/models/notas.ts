@@ -6,15 +6,15 @@ export class Nota {
   conteudo: string;
   tema: Tema;
   categoriaId: number;
-  categoria?: Categoria
+  categoria: Categoria
 
   constructor( 
     titulo: string,
     conteudo: string,
     tema: Tema,
     categoriaId: number,
-    id?: number,
-    categoria?: Categoria
+    categoria: Categoria,
+    id?: number
   ) {
     this.titulo = titulo;
     this.conteudo = conteudo;
