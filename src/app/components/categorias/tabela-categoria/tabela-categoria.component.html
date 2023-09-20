@@ -2,18 +2,18 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">#ID</th>
-        <th scope="col"></th>
-        <th scope="col">Titulo</th>
-        <th scope="col"></th>
+        <th class="text-center" scope="col">#ID</th>
+        <th class="text-center" scope="col"></th>
+        <th class="text-start" scope="col">Titulo</th>
+        <th class="text-center" scope="col"></th>
       </tr>
     </thead>
     <tbody *ngFor="let categoria of categorias">
       <tr>
-        <th scope="row">{{categoria.id}}</th>
+        <th class="text-center" scope="row">{{categoria.id}}</th>
         <td></td>
-        <td>{{categoria.titulo}}</td>
-        <td>
+        <td class="text-start">{{categoria.titulo}}</td>
+        <td class="text-center col col-lg-2">
           <button
             routerLink="/categorias/editar/{{categoria.id}}"
             class="btn btn-outline-success me-1"

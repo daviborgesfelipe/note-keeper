@@ -6,7 +6,9 @@
       Crie uma nota personalizada para ajudar a organizar as tarefas do seu
       dia-a-dia.
     </h2>
+    
     <form (submit)="criarNota()" class="d-grid gap-3">
+
       <div class="mb-3">
         <label for="titulo" class="form-label fs-5 fw-semibold">Título</label>
         <input [(ngModel)]="nota.titulo" type="text" class="form-control" id="titulo" name="titulo" />
@@ -26,14 +28,19 @@
 
       <!-- Criar ComboBox de Categorias -->
       <div class="input-group mb-3">
-        <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
-        <select class="form-select" id="inputGroupSelect01" [(ngModel)]="nota.categoriaId" name="categoria">
+        <label class="input-group-text fw-bold" for="categoria">Categorias</label>
+        <select class="form-select" id="categoria" [(ngModel)]="nota.categoriaId" name="categoria">
+          
           <option>Selecione...</option>
-          <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.titulo}}</option>
+          <option 
+            *ngFor="let categoria of categorias" 
+            [ngValue]="categoria.id">
+            {{categoria.titulo}}
+          </option>
         </select>
       </div>
 
-
+      <!-- SELECIONA TEMAS -->
       <label for="tema" class="form-label fs-5 fw-semibold">Tema</label>
       <div>
         <div class="form-check form-check-inline">
@@ -106,7 +113,7 @@
 
       <div class="d-flex gap-2 my-2 justify-content-end">
         <button type="submit" class="btn btn-primary px-5">Salvar</button>
-        <button routerLink="/notas/listar" class="btn btn-outline-danger px-4">
+        <button type="button" routerLink="/notas/listar" class="btn btn-outline-danger px-4">
           Cancelar
         </button>
       </div>

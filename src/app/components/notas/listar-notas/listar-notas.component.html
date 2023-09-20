@@ -1,17 +1,27 @@
-<section class="row gap-3">
+<section class="row gap-3 mx-5">
   <h1>Minhas Notas</h1>
 
   <div>
-    <!-- HREF TEVE Q MORRER -->
     <button routerLink="/notas/criar" class="btn btn-lg btn-outline-primary mb-4 rounded-4">
       <i class="bi bi-plus-circle"></i>
       Criar Nota
     </button>
   </div>
-  <app-filtros-por-categoria [categorias]="categorias" (onFiltroSelecionado)="filtrarNotasPorCategoria($event)"> </app-filtros-por-categoria>
+
+  <app-filtros-por-categoria 
+    [categorias]="categorias" 
+    (onFiltroSelecionado)="filtrarNotasPorCategoria($event)"> 
+  </app-filtros-por-categoria>
+
   <div class="row g-3">
+
     <div *ngFor="let nota of notas" class="col-sm col-md-6 col-lg-3">
-      <app-nota [nota]="nota"></app-nota>
+      <app-nota 
+        [nota]="nota" 
+        [categoria]="nota.categoria">
+      </app-nota>
     </div>
+
   </div>
+
 </section>

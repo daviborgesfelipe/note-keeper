@@ -7,12 +7,17 @@
     </h2>
 
     <form (submit)="editarNota()" class="d-grid gap-3">
+
       <div class="mb-3">
         <label for="titulo" class="form-label">Título</label>
+
         <input [(ngModel)]="nota.titulo" type="text" class="form-control" id="titulo" name="titulo" />
+
       </div>
+
       <div class="mb-3">
         <label for="conteudo" class="form-label">Conteúdo</label>
+
         <textarea
           [(ngModel)]="nota.conteudo"
           name="conteudo"
@@ -20,14 +25,22 @@
           id="conteudo"
           rows="3"
         ></textarea>
+
       </div>
 
       <div class="input-group mb-3">
         <label class="input-group-text" for="inputGroupSelect01">Categorias</label>
+
         <select class="form-select" id="inputGroupSelect01" [(ngModel)]="nota.categoriaId" name="categoria">
           <option>Selecione...</option>
-          <option *ngFor="let categoria of categorias" [value]="categoria.id">{{categoria.titulo}}</option>
+
+          <option 
+            *ngFor="let categoria of categorias" 
+            [value]="categoria.id">{{categoria.titulo}}
+          </option>
+
         </select>
+
       </div>
 
 
