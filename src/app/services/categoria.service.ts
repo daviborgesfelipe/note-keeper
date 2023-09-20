@@ -9,8 +9,8 @@ import { Observable } from "rxjs";
 
 export class CategoriaService{
   private API_URL = 'http://localhost:3000/categorias/'
-  private categorias: Categoria[] = [];
-  
+  private API_URL_CATEGORIA_EMBED_NOTAS = 'http://localhost:3000/categorias?_embed=notas'
+
   constructor(private http: HttpClient) {
   }
 
@@ -26,9 +26,8 @@ export class CategoriaService{
     return this.http.get<Categoria[]>(this.API_URL + categoria.id);
   }    
   
-  selecionarCategoriaComNotas(categoria: Categoria): Observable<Categoria[]> {
-    const URL = 'http://localhost:3000/categorias?_embed=notas'
-    return this.http.get<Categoria[]>(URL);
+  selecionarCategoriaComNotas(): Observable<Categoria[]> {
+    return this.http.get<Categoria[]>(this.API_URL_CATEGORIA_EMBED_NOTAS);
   }  
 
   selecionarPorId(id: number): Observable<Categoria> {

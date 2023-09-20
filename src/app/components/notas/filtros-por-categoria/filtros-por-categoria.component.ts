@@ -17,7 +17,7 @@ export class FiltrosPorCategoriaComponent implements OnInit{
     this.categorias = []
   }
   ngOnInit(): void {
-    this.servicoCategoria.selecionarTodos().subscribe(_categorias => this.categorias == _categorias)
+    this.servicoCategoria.selecionarCategoriaComNotas().subscribe(_categorias => this.categorias == _categorias)
   }
 
   selecionarTodas(){
