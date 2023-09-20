@@ -9,26 +9,26 @@ import { CategoriaService } from 'src/app/services/categoria.service';
   templateUrl: './listar-notas.component.html',
   styleUrls: ['./listar-notas.component.css']
 })
+
 export class ListarNotasComponent implements OnInit{
+
   notas: Nota[] = [];
   categorias: Categoria[] = [];
 
-  filtroCategoria: Categoria;
-  nota: Nota;
+  categoria: Categoria;
 
   constructor(
       private notaService: NotaService, 
       private categoriaService: CategoriaService
     ) {
-    this.filtroCategoria = new Categoria('')
-    this.nota = new Nota('','','dark',0)
+    this.categoria = new Categoria('')
   }
     
   ngOnInit(): void {
-    this.notaService.selecionarTodos().subscribe(_notas =>
+    this.notaService.selecionarTodasNotasCategoria().subscribe(_notas =>
       this.notas = _notas
     );
-    this.categoriaService.selecionarTodos().subscribe(_categoria => 
+    this.categoriaService.selecionarCategoriaComNotas().subscribe(_categoria => 
       this.categorias = _categoria
     );
   }
@@ -42,19 +42,14 @@ export class ListarNotasComponent implements OnInit{
   }
 
   selecionarNotasPorCategoria(categoria: Categoria) {
-    this.notaService.selecionarTodosComCategoria(categoria).subscribe((notas: Nota[]) => {
+    this.notaService.selecionarTodosNotasPorCategoriaId(categoria).subscribe((notas: Nota[]) => {
       this.notas = notas
     })
   }
 
   selecionarTodasNotas() {
-    this.notaService.selecionarTodos().subscribe(_notas =>
+    this.notaService.selecionarTodasNotasCategoria().subscribe(_notas =>
       this.notas = _notas
     );
-  }
-
-  onFiltroSelecionado(categoria: Categoria) {
-    this.filtroCategoria = categoria
-    this.categoriaService.selecionarComCategoria(categoria).subscribe(x => this.categorias == x)
   }
 }

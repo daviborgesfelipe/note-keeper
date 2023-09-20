@@ -15,6 +15,7 @@ import { Categoria } from "src/app/models/categoria";
 export class CriarNotaComponent implements OnInit{
   // @Output() notaCriada = new EventEmitter<Nota>();
   nota: Nota;
+  categoria: Categoria;
   notas: Nota[] = [];
   categorias: Categoria[] = []; 
 
@@ -24,12 +25,8 @@ export class CriarNotaComponent implements OnInit{
       private router: Router,
       private toastService: ToastrService
     ) {
-    this.nota = new Nota(
-      '',
-      '',
-      'dark',
-      0
-    );
+    this.categoria = new Categoria('')
+    this.nota = new Nota('','','dark',0, this.categoria);
   }
 
   ngOnInit(): void {

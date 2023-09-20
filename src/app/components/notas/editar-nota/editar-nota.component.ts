@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NotaService } from '../../../services/nota.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Nota } from '../../../models/notas';
 import { ToastrService } from 'ngx-toastr';
+import { Nota } from '../../../models/notas';
 import { Categoria } from 'src/app/models/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
 
@@ -11,6 +11,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
   templateUrl: './editar-nota.component.html',
   styleUrls: ['./editar-nota.component.css']
 })
+
 export class EditarNotaComponent implements OnInit{
   nota: Nota;
   notas: Nota[] = [];
@@ -23,7 +24,7 @@ export class EditarNotaComponent implements OnInit{
       private router: Router,
       private toastService: ToastrService
     ){
-    this.nota = new Nota('','','dark',0);
+    this.nota = new Nota('','','dark',0, new Categoria(''));
     }
 
     ngOnInit(): void {
@@ -31,7 +32,7 @@ export class EditarNotaComponent implements OnInit{
       this.categoriaService.selecionarTodos().subscribe(_categorias => {
         this.categorias = _categorias
       });
-      this.notaService.selecionarPorId(id).subscribe((nota: Nota) => this.nota = nota);
+      this.notaService.selecionarNotaPorId(id).subscribe((nota: Nota) => this.nota = nota);
     }
 
     editarNota(){

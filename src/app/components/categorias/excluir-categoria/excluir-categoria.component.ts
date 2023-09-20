@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Categoria } from 'src/app/models/categoria';
-import { Nota } from 'src/app/models/notas';
 import { CategoriaService } from 'src/app/services/categoria.service';
-import { NotaService } from 'src/app/services/nota.service';
 
 @Component({
   selector: 'app-excluir-categoria',
   templateUrl: './excluir-categoria.component.html',
   styleUrls: ['./excluir-categoria.component.css']
 })
+
 export class ExcluirCategoriaComponent implements OnInit{
   categoria: Categoria;
 
@@ -31,8 +30,8 @@ export class ExcluirCategoriaComponent implements OnInit{
   }
   
   excluirCategoria(){
-    this.categoriaService.excluir(this.categoria).subscribe((categoria: Categoria) => {
-      this.toastService.success(`Categoria ${categoria.titulo} EXCLUIDA com sucesso`, 'Sucesso')
+    this.categoriaService.excluir(this.categoria).subscribe(() => {
+      this.toastService.success(`Categoria EXCLUIDA com sucesso`, 'Sucesso')
       this.router.navigate(['/categorias', 'listar'])
     })
   }
