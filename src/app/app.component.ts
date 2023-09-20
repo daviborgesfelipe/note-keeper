@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Categoria } from './models/categoria';
+import { Nota } from './models/notas';
 
 //decorator 
 @Component({
@@ -7,12 +9,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'note-keeper';
-  saudacao: string = "Hello World!";
-
-  valor: string = ""
-
-  mostarValor(){
-    return alert(this.valor)
-  }
 }
