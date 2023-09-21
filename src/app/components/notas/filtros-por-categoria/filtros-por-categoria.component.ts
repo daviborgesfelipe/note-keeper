@@ -7,7 +7,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
   templateUrl: './filtros-por-categoria.component.html',
   styleUrls: ['./filtros-por-categoria.component.css']
 })
-export class FiltrosPorCategoriaComponent implements OnInit{
+export class FiltrosPorCategoriaComponent{
   @Input({required: true}) categorias: Categoria[];
 
   @Output() onFiltroSelecionado: EventEmitter<Categoria>;
@@ -15,9 +15,6 @@ export class FiltrosPorCategoriaComponent implements OnInit{
   constructor(private servicoCategoria: CategoriaService){
     this.onFiltroSelecionado = new EventEmitter();
     this.categorias = []
-  }
-  ngOnInit(): void {
-    this.servicoCategoria.selecionarCategoriaComNotas().subscribe(_categorias => this.categorias == _categorias)
   }
 
   selecionarTodas(){

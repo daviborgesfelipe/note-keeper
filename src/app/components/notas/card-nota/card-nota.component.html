@@ -13,29 +13,41 @@
       <p class="fw-bolder m-auto">{{nota.categoria.titulo}}</p>
     </div>
 
-    <button
-      routerLink="/notas/editar/{{ nota.id }}"
-      class="btn btn-outline-{{ nota.tema }}"
-      aria-label="Editar"
-      ngbTooltip="Editar"
-      placement="bottom"
-    >
-      <i class="bi bi-pen"></i>
-    </button>
-    <!-- <a routerLink="/notas/editar/{{ nota.id }}">
-    </a> -->
+    <a routerLink="/notas/editar/{{ nota.id }}">
+      <button
+        class="btn btn-outline-{{ nota.tema }}"
+        aria-label="Editar"
+        ngbTooltip="Editar"
+        placement="bottom"
+      >
+        <i class="bi bi-pen"></i>
+      </button>
+    </a>
   
+    <a routerLink="/notas/excluir/{{ nota.id }}">
+      <button
+        class="btn btn-outline-{{ nota.tema }}"
+        aria-label="Excluir"
+        ngbTooltip="Excluir"
+        placement="bottom"
+      >
+        <i class="bi bi-trash"></i>
+      </button>
+    </a>
+    
+    
     <button
-      routerLink="/notas/excluir/{{ nota.id }}"
       class="btn btn-outline-{{ nota.tema }}"
-      aria-label="Excluir"
-      ngbTooltip="Excluir"
+      [ngbTooltip]="nota.arquivada ? 'Reativar' : 'Arquivar'"
       placement="bottom"
+      (click)="arquivarNota(nota)"
     >
-      <i class="bi bi-trash"></i>
+      <i
+       class="bi bi-archive"
+       [ngClass]="nota.arquivada ? 'bi-arrow-left-circle-fill' : 'bi-archive-fill'"
+      ></i>
     </button>
-    <!-- <a routerLink="/notas/excluir/{{ nota.id }}">
-    </a> -->
+    
   
   </div>
 </div>

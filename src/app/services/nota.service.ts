@@ -9,11 +9,11 @@ import { Categoria } from "../models/categoria";
 })
 
 export class NotaService {
-  private NOTAS_API_URL = 'http://localhost:3000/notas/'
+  private NOTAS_API_URL = 'http://localhost:3000/notas'
   private CATEGORIA_API_URL = 'http://localhost:3000/categorias/'
+
   private EXPAND_CATEGORIA = "?_expand=categoria"
   private EXPAND_CATEGORIA_CATEGORIAID = "&&categoriaId="
-  private notas: Nota[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -23,7 +23,7 @@ export class NotaService {
   }
   
   editar(nota: Nota): Observable<Nota> {
-    return this.http.put<Nota>(this.NOTAS_API_URL + nota.id, nota);
+    return this.http.put<Nota>(this.NOTAS_API_URL + `/${nota.id}`, nota);
   }
   
   excluir(nota: Nota) {
@@ -31,18 +31,36 @@ export class NotaService {
   }
   
   selecionarTodos(): Observable<Nota[]> {
-    return this.http.get<Nota[]>(this.NOTAS_API_URL);
+    const NOT_EQUALS = "?arquivada_ne=true"
+
+    return this.http.get<Nota[]>(this.NOTAS_API_URL + NOT_EQUALS);
   }  
+
+  selecionarTodosArquivadas(): Observable<Nota[]> {
+    const NOT_EQUALS = "?arquivada_ne=false"
+
+    return this.http.get<Nota[]>(this.NOTAS_API_URL + NOT_EQUALS);
+  } 
   
   selecionarNotaPorId(id: number): Observable<Nota> {
-    return this.http.get<Nota>(this.NOTAS_API_URL + id + this.EXPAND_CATEGORIA)
+    return this.http.get<Nota>(`${this.NOTAS_API_URL}/${id}` + this.EXPAND_CATEGORIA)
   }
 
   selecionarTodasNotasCategoria(): Observable<Nota[]>{
-    return this.http.get<Nota[]>(this.NOTAS_API_URL + this.EXPAND_CATEGORIA)
+    const NOT_EQUALS = "?arquivada_ne=true"
+
+    return this.http.get<Nota[]>(this.NOTAS_API_URL + NOT_EQUALS)
   }
   
   selecionarTodosNotasPorCategoriaId(categoria: Categoria): Observable<Nota[]> {
-    return this.http.get<Nota[]>(this.NOTAS_API_URL + this.EXPAND_CATEGORIA + this.EXPAND_CATEGORIA_CATEGORIAID + categoria.id ?? 0);
+    const NOT_EQUALS = "?arquivada_ne=true"
+    
+    return this.http.get<Nota[]>(this.NOTAS_API_URL + NOT_EQUALS + this.EXPAND_CATEGORIA_CATEGORIAID + categoria.id ?? 0);
+  } 
+
+  selecionarTodosNotasArquivadasPorCategoriaId(categoria: Categoria): Observable<Nota[]> {
+    const NOT_EQUALS = "?arquivada_ne=false"
+    
+    return this.http.get<Nota[]>(this.NOTAS_API_URL + NOT_EQUALS + this.EXPAND_CATEGORIA_CATEGORIAID + categoria.id ?? 0);
   } 
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ListarNotasComponent } from './components/notas/listar-notas/listar-notas.component';
+import { ListarNotasArquivadasComponent } from './components/notas/listar-notas-arquivadas/listar-notas-arquivadas.component';
 import { CriarNotaComponent } from './components/notas/criar-nota/criar-nota.component';
 import { EditarNotaComponent } from './components/notas/editar-nota/editar-nota.component';
 import { ExcluirNotaComponent } from './components/notas/excluir-nota/excluir-nota.component';
@@ -20,6 +21,10 @@ const routes: Routes = [
   {
     path: 'notas/listar',
     component: ListarNotasComponent
+  },
+  {
+    path: 'notas/arquivadas',
+    component: ListarNotasArquivadasComponent
   },
   {
     path: 'notas/criar',

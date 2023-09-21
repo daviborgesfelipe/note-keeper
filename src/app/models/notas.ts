@@ -7,6 +7,7 @@ export class Nota {
   tema: Tema;
   categoriaId: number;
   categoria: Categoria
+  arquivada: boolean
 
   constructor( 
     titulo: string,
@@ -22,6 +23,7 @@ export class Nota {
     this.categoriaId = categoriaId 
     this.id = id;   
     this.categoria = categoria
+    this.arquivada = false
   }
 }
 

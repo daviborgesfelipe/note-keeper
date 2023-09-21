@@ -8,8 +8,8 @@ import { Observable } from "rxjs";
 })
 
 export class CategoriaService{
-  private API_URL = 'http://localhost:3000/categorias/'
-  private API_URL_CATEGORIA_EMBED_NOTAS = 'http://localhost:3000/categorias?_embed=notas'
+  private API_URL = "http://localhost:3000/categorias"
+  private API_URL_CATEGORIA_EMBED_NOTAS = 'http://localhost:3000/categorias'
 
   constructor(private http: HttpClient) {
   }

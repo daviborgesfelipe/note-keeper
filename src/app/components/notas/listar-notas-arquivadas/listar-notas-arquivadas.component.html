@@ -1,12 +1,12 @@
 <section class="row gap-3 mx-5">
-  <h1>Minhas Notas</h1>
+  <h1 class="mb-5">Minhas Notas Arquivadas</h1>
 
-  <div>
+  <!-- <div>
     <button routerLink="/notas/criar" class="btn btn-lg btn-outline-primary mb-4 rounded-4">
       <i class="bi bi-plus-circle"></i>
       Criar Nota
     </button>
-  </div>
+  </div> -->
 
   <app-filtros-por-categoria 
     [categorias]="categorias" 
@@ -17,11 +17,11 @@
 
     <div *ngFor="let nota of notas" class="col-sm col-md-6 col-lg-3">
       <app-nota 
-
         [nota]="nota" 
         [categoria]="nota.categoria"
-        (onArquivarClicado)="arquivarNota($event)"
+        (onArquivarClicado)="reativarNota($event)"
         >
+        
       </app-nota>
     </div>
 

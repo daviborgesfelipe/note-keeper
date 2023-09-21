@@ -19,23 +19,25 @@ import { CriarCategoriaComponent } from './components/categorias/criar-categoria
 import { ListarCategoriaComponent } from './components/categorias/listar-categoria/listar-categoria.component';
 import { TabelaCategoriaComponent } from './components/categorias/tabela-categoria/tabela-categoria.component';
 import { EditarCategoriaComponent } from './components/categorias/editar-categoria/editar-categoria.component';
-import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component'
+import { ExcluirCategoriaComponent } from './components/categorias/excluir-categoria/excluir-categoria.component';
+import { ListarNotasArquivadasComponent } from './components/notas/listar-notas-arquivadas/listar-notas-arquivadas.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    ListarNotasComponent,
     CardNotaComponent, 
+    ListarNotasComponent,
+    ListarNotasArquivadasComponent, 
     CriarNotaComponent,
     EditarNotaComponent,
     ExcluirNotaComponent,
-    FiltrosPorCategoriaComponent,
-    CriarCategoriaComponent,
-    ListarCategoriaComponent,
     TabelaCategoriaComponent,
+    ListarCategoriaComponent,
+    CriarCategoriaComponent,
     EditarCategoriaComponent,
-    ExcluirCategoriaComponent, 
+    ExcluirCategoriaComponent,
+    FiltrosPorCategoriaComponent,
   ],
   imports: [
     BrowserModule,

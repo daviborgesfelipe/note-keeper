@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Nota } from '../../../models/notas';
 import { Categoria } from 'src/app/models/categoria';
 import { CategoriaService } from 'src/app/services/categoria.service';
@@ -8,7 +8,7 @@ import { CategoriaService } from 'src/app/services/categoria.service';
   templateUrl: './card-nota.component.html',
   styleUrls: ['./card-nota.component.css']
 })
-export class CardNotaComponent implements OnInit{
+export class CardNotaComponent{
   @Input() nota: Nota = {
     id: 0,
     titulo: 'Analise',
@@ -18,7 +18,8 @@ export class CardNotaComponent implements OnInit{
     categoria: {
       titulo: 'Teste',
       id: 12
-    }
+    },
+    arquivada: false
   };
   
   @Input() categoria: Categoria = {
@@ -26,11 +27,14 @@ export class CardNotaComponent implements OnInit{
     titulo: "Teste"
   }
   
-  constructor(private categoriaService: CategoriaService){
 
+  @Output() onArquivarClicado: EventEmitter<Nota>;
+
+  constructor(private categoriaService: CategoriaService){
+    this.onArquivarClicado = new EventEmitter();
   }
-    
-  ngOnInit(): void {
-    this.categoriaService.selecionarPorId(this.nota.categoriaId).subscribe((x: Categoria) => this.categoria = x)
+
+  arquivarNota(nota: Nota){
+    this.onArquivarClicado.emit(nota);
   }
 }
