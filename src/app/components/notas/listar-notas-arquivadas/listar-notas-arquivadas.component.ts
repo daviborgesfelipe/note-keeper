@@ -25,8 +25,9 @@ export class ListarNotasArquivadasComponent {
   }
 
   ngOnInit(): void {
-    this.notaService.selecionarTodosArquivadas().subscribe(_notas =>
-      this.notas = _notas
+    this.notaService.selecionarTodosArquivadas()
+      .subscribe(_notas =>
+        this.notas = _notas
     );
     this.categoriaService.selecionarCategoriaComNotas().subscribe(_categoria => 
       this.categorias = _categoria

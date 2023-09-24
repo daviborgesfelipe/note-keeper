@@ -9,7 +9,7 @@ import { environment } from "src/environments/environment";
 })
 
 export class CategoriaService{
-  private CATEGORIA_API_URL = `${ environment.API_URL }/api/categorias`
+  private CATEGORIA_API_URL = `${ environment.API_URL }/api/categorias/`
   private API_URL_CATEGORIA_EMBED_NOTAS = `${ environment.API_URL }/api/categorias?_embed=notas`
 
   constructor(private http: HttpClient) {

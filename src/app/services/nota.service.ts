@@ -10,7 +10,7 @@ import { environment } from "src/environments/environment";
 })
 
 export class NotaService {
-  private NOTAS_API_URL = `${ environment.API_URL }/api/notas`
+  private NOTAS_API_URL = `${ environment.API_URL }/api/notas/`
   private CATEGORIA_API_URL = `${ environment.API_URL }/api/categorias/`
 
   private EXPAND_CATEGORIA = "?_expand=categoria"
